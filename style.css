@@ -1,0 +1,1682 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+.navbar {
+    background-color: #011627;
+    color: white;
+    padding: 20px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+    height: 100vh; /* Ensure the navbar takes full height */
+    position: fixed; /* Make the navbar fixed */
+    top: 0;
+    left: 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 5px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-logo {
+    font-size: 24px;
+    margin-bottom: 30px;
+    padding: 10px;
+    text-align: left;
+}
+
+.logo-period {
+    color: #E63946; /* Set the color for the period */
+    font-size: 1.2em; /* Slightly increase the size */
+}
+
+.nav-links {
+    display: flex !important;;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center; /* Center items vertically */
+    height: 100%; /* Ensure the container takes full height */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+    position: relative; 
+}
+
+.content {
+    flex: 1;
+    padding: 10px; /* Adjust padding to control the grey border size */
+    background-color: #334452; /* Set the background color */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center;
+    align-items: center;
+    margin-left: 250px;
+}
+
+.content-inner {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; 
+    background-color: #F1FAEE;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    height: auto; /* Adjust height to fit content */
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.top-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 20px; /* Adjust this value to control spacing */
+    margin-top: 50px;
+    border-bottom: 1px solid #D3D3D3; /* Add line to divide from About Me */
+    padding-bottom: 0px;
+}
+
+.text-content {
+    flex: 1;
+    max-width: 50%; /* Prevents text from taking too much space */
+    margin-left: 60px; /* Add this line to push content right */
+    margin-top: 30px;
+}
+
+.text-content h1{
+    font-size: 50px;
+    border-bottom: 2px solid #E63946;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.text-content h2{
+    margin-top: 20px;
+}
+
+.text-content h3{
+    margin-bottom: 10px;
+    color: #E63946;
+}
+
+.image-content {
+    flex: 0 1 40%; /* Allows image to shrink and take up to 40% */
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.image-content img {
+    width: 100%; /* Ensures image fills its container */
+    max-width: 600px; /* Limits image size */
+    border-radius: 5px;
+}
+
+
+/* Button download CV */
+button {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    touch-action: manipulation;
+    margin-top: 50px;
+   }
+   
+   .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform
+       600ms
+       cubic-bezier(.3, .7, .4, 1);
+   }
+   
+   .edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(
+       to left,
+       hsl(340deg 100% 16%) 0%,
+       hsl(340deg 100% 32%) 8%,
+       hsl(340deg 100% 32%) 92%,
+       hsl(340deg 100% 16%) 100%
+     );
+   }
+   
+   .front {
+    display: block;
+    position: relative;
+    padding: 12px 27px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: white;
+    background: hsl(345deg 100% 47%);
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform
+       600ms
+       cubic-bezier(.3, .7, .4, 1);
+   }
+   
+   button:hover {
+    filter: brightness(110%);
+   }
+   
+   button:hover .front {
+    transform: translateY(-6px);
+    transition: transform
+       250ms
+       cubic-bezier(.3, .7, .4, 1.5);
+   }
+   
+   button:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+   }
+   
+   button:hover .shadow {
+    transform: translateY(4px);
+    transition: transform
+       250ms
+       cubic-bezier(.3, .7, .4, 1.5);
+   }
+   
+   button:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+   }
+   
+   button:focus:not(:focus-visible) {
+    outline: none;
+   }
+
+  /* Button for portfolio */
+button.portfolio1 {
+    margin-left: 20px; /* Adjust this value as needed */
+}
+
+button.portfolio1 .edge {
+    background: linear-gradient(
+        to left,
+        #011627 0%,
+        #011627 8%,
+        #011627 92%,
+        #011627 100%
+    );
+}
+
+button.portfolio1 .front {
+    background: #011627;
+}
+
+/* If you want hover states to match original behavior */
+button.portfolio1:hover .front {
+    background: #011627; /* Maintain color on hover */
+    filter: brightness(110%); /* Keep existing hover effect */
+}
+
+button.portfolio1:active .front {
+    background: #011627; /* Maintain color on click */
+} 
+
+
+/* About Me Section */
+.about-me {
+    padding: 40px 20px;
+    width: calc(100% - 50px); /* Full width within content-inner */
+    border-radius: 10px;
+    text-align: left;
+    margin-left: 20px;
+    border-bottom: none; /* Remove existing border-bottom */
+    padding-bottom: 0; /* Remove existing padding-bottom */
+}
+
+.bottom-line-about {
+    border-bottom: 1px solid #D3D3D3; /* Add line below the About Me section */
+    padding-bottom: 30px; /* Add padding to create space between content and line */
+    width: 100%;
+    margin-left: 0;
+}
+
+.about-me h2 {
+    font-size: 2rem;
+    color: #011627;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #E63946;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.about-me p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Target Roles */
+.Target-role {
+    margin-top: 50px;
+}
+
+.target-roles-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Center the target roles container */
+}
+
+.target-role {
+    display: flex;
+    align-items: center;
+    width: calc(50% - 10px); /* Two columns */
+    background: #F1FAEE;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.target-role i {
+    font-size: 2rem;
+    color: #E63946;
+    margin-right: 10px;
+    margin-bottom: 70px;
+}
+
+.target-role h3 {
+    font-size: 1rem;
+    color: #011627;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.target-role p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+
+/* Resume Section */
+.resume {
+    padding: 40px 20px;
+    width: calc(100% - 50px); /* Full width within content-inner */
+    border-radius: 10px;
+    text-align: left;
+    margin-left: 20px;
+    border-bottom: none; /* Remove existing border-bottom */
+    padding-bottom: 0;
+    
+}
+
+.resume h2 {
+    font-size: 2rem;
+    color: #011627;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #E63946;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.resume-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.education, .work-experience {
+    width: 45%; /* Adjust width as needed */
+    margin-right: 120px;
+}
+
+.education h3, .work-experience h3 {
+    font-size: 1.5rem;
+    color: #777;
+    margin-bottom: 20px;
+    margin-top: -50px;
+}
+
+.education p {
+    color: #334452;
+}
+
+.education p, .work-experience p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+/* Timeline */
+.timeline {
+    position: relative;
+    margin-left: 20px;
+    padding-left: 20px; /* Adjust padding to align the line */
+    border-left: 1px solid #E63946; /* Thinner line */
+}
+
+.timeline-section {
+    margin-bottom: 40px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -27px; /* Adjust to center the dot on the line */
+    top: 0;
+    width: 12px; /* Adjust dot size */
+    height: 12px; /* Adjust dot size */
+    background-color: #E63946;
+    border-radius: 50%;
+}
+
+.timeline-content {
+    margin-left: 30px;
+}
+
+.timeline-content h4 {
+    font-size: 1.2rem;
+    color: #011627;
+    margin-bottom: 5px;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.timeline-content ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.timeline-content ul li {
+    margin-bottom: 5px;
+    color: #334452;
+}
+
+.resume-line {
+    border-bottom: 1px solid #D3D3D3; /* Add line below the About Me section */
+    padding-bottom: 30px; /* Add padding to create space between content and line */
+    width: 100%;
+    margin-left: 0;
+}
+
+/* Portfolio */
+.portfolio {
+    padding: 40px 20px;
+    width: calc(100% - 50px); /* Full width within content-inner */
+    border-radius: 10px;
+    text-align: left;
+    margin-left: 20px;
+    border-bottom: none; /* Remove existing border-bottom */
+    padding-bottom: 0; /* Remove existing padding-bottom */
+}
+
+.portfolio h2 {
+    font-size: 2rem;
+    color: #011627;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #E63946;
+    padding-bottom: 5px;
+    display: inline-block;
+    text-align: left;
+}
+
+.portfolio-line {
+    border-bottom: 1px solid #D3D3D3; /* Add line below the Portfolio section */
+    padding-bottom: 30px; /* Add padding to create space between content and line */
+    width: 100%;
+    margin-left: 0;
+}
+
+.portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 30px; /* Adjust gap between cards */
+    justify-content: center; /* Center the cards horizontally */
+    margin-top: 20px;
+}
+
+.projects{
+    font-size: 1.5rem;
+    color: #777;
+}
+
+.card {
+    position: relative;
+    width: 700px;
+    height: 450px;
+    background-color: #011627;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: -20px;
+    perspective: 1000px;
+    box-shadow: 0 0 0 5px #ffffff80;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .card svg {
+    width: 100%; /* Ensure the svg takes full width of the card */
+    height: 100%; /* Ensure the svg takes full height of the card */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card img {
+    max-width: 100%; /* Ensure the image fits within the card */
+    max-height: 100%; /* Ensure the image fits within the card */
+    object-fit: cover; /* Ensure the image covers the card without distortion */
+}
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+  }
+  
+  .card__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #F1FAEE;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .card:hover .card__content {
+    transform: rotateX(0deg);
+  }
+  
+  .card__title {
+    margin: 0;
+    font-size: 30px;
+    color: #333;
+    font-weight: 600;
+  }
+
+  .card__title h4{
+    font-size: 20px;
+    font-weight: 400;
+  }
+  
+  .card:hover svg {
+    scale: 0;
+  }
+  
+  .card__description {
+    margin: 10px 0 0;
+    font-size: 20px;
+    color: #777;
+    line-height: 1.4;
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* Limit to 6 lines */
+    -webkit-box-orient: vertical;
+}
+
+.skills-tools-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 20px; /* Adjust gap between columns */
+}
+
+.skills, .tools {
+    padding: 0; 
+    margin: 0; 
+    font-size: 14px; 
+    color: black;
+    margin-top: 10px;
+}
+
+.skills ul, .tools ul {
+    list-style-type: none; 
+    padding-left: 0; 
+}
+
+.skills ul li {
+    padding-left: 0px; /* Adjust padding to move the list items further to the right */
+    margin-bottom: 5px; /* Add some space between list items */
+    color: #777;
+}
+
+.tools ul li {
+    margin-bottom: 5px; /* Add some space between list items */
+    color: #777;
+}
+
+/* Credentials Section */
+.credentials {
+  margin-top: 30px;
+}
+
+.credentials h3 {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* Rectangles Container */
+.rectangles-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 rectangles per row */
+  gap: 20px; /* Add spacing between rectangles */
+  justify-items: center; /* Center rectangles horizontally */
+  margin-top: 20px;
+}
+
+/* Rectangle Shape */
+.rectangle {
+  width: 450px; 
+  height: 225px; 
+  border-radius: 5px; 
+  background-size: contain; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
+
+/* Title and Description Below Rectangle */
+.rectangles-container h6 {
+  font-size: 1.2rem;
+  color: #011627;
+  margin-top: 10px; 
+  text-align: center;
+  margin-bottom: 5px; 
+}
+
+.rectangles-container p {
+  font-size: 1rem;
+  color: #777;
+  line-height: 1.5;
+  margin: 0 10px 20px; 
+  text-align: justify; 
+  margin-left: 0;
+  letter-spacing: 0em; 
+}
+
+
+.hidden {
+  display: none;
+}
+
+/* Button to show more certificates */
+.btn.show-more {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #E63946;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto; 
+  text-align: center; 
+}
+
+.btn.show-more:hover {
+  background-color: #D62828;
+}
+
+
+/* From Uiverse.io by Na3ar-17 */ 
+.card-credentials {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 285px;
+    padding: 8px;
+    background-color: #282727;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    aspect-ratio: 16/12;
+    transition: all 0.3s ease;
+  }
+  
+  .card-credentials .no-image {
+    border: 2px dashed #373737;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    aspect-ratio: 16/8;
+  }
+  
+  .card-credentials .no-image .icon {
+    width: 60px;
+    color: #373737;
+  }
+  
+  .card-credentials .image {
+    width: 100%;
+    aspect-ratio: 16/8;
+  }
+  
+  .card-credentials .image .picture {
+    border-radius: 8px;
+    width: inherit;
+    aspect-ratio: 16/8;
+  }
+  
+  .card-credentials .content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+    padding-left: 4px;
+  }
+  
+  .card-credentials .content .name {
+    font-size: 1.5rem;
+    color: #ffffff;
+  }
+  
+  .card-credentials .content .time {
+    padding-top: 12px;
+    font-size: 0.875rem;
+    color: #c5c5c5;
+  }
+  
+  .card-credentials:hover {
+    -webkit-box-shadow: 0px 0px 15px -8px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 15px -8px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 15px -8px rgba(66, 68, 90, 1);
+  }
+  
+
+/* Contact Section */
+.containers-contact {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto; 
+  gap: 20px; 
+}
+.left {
+  flex: 1;
+  background: #011627;
+  padding: 20px;
+  border-radius: 10px;
+}
+.left h3 {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.left input, .left textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  background: #334452;
+  color: white;
+  outline: none;
+}
+.left button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #E63946;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.left button:hover {
+  background: #D62828;
+}
+.right {
+  flex: 1;
+  color: black;
+  padding-left: 20px;
+}
+.right h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.right .info-item {
+  margin-bottom: 15px;
+}
+.right .info-item p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+.contact-description {
+  font-size: 14px; 
+  line-height: 1.6; 
+  color: #777; 
+  margin-bottom: 50px;
+}
+
+/* Contact info */
+.footer {
+  display: flex; 
+  justify-content: space-between;
+  background-size: cover; 
+  background-position: center; 
+  color: black;
+  padding: 20px; 
+  margin-top: 20px;
+  border-top: 1px solid #D3D3D3; 
+}
+
+.footer h3 {
+  font-size: 1.5rem;
+  color: black; 
+}
+
+.footer p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #777; 
+}
+
+.footer .social-icons {
+  display: flex;
+  gap: 15px; 
+}
+
+.footer .social-icons .icon {
+  background: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.footer .social-icons .icon:hover {
+  transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+.footer .social-icons .icon svg {
+  fill: #334452; /* Icon color */
+  width: 24px;
+  height: 24px;
+}
+
+/* Icons in footer */ 
+.wrapper {
+  display: flex; 
+  list-style: none;
+  justify-content: center; 
+  padding: 20px 0;
+  gap: 20px; 
+}
+
+/* Individual icon styles */
+.wrapper .icon {
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Tooltip styles */
+.wrapper .tooltip {
+  position: absolute;
+  bottom: -30px;
+  font-size: 14px;
+  background: #334452;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Tooltip arrow */
+.wrapper .tooltip::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #334452;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Hover effect for icons */
+.wrapper .icon:hover {
+  transform: translateY(-10px); /* Move the icon up slightly */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Show tooltip on hover */
+.wrapper .icon:hover .tooltip {
+  opacity: 1;
+  bottom: -45px; /* Move tooltip further down */
+}
+
+/* LinkedIn hover effect */
+.wrapper .icon.linkedin:hover {
+  background: #fff; 
+  color: black; 
+}
+
+/* GitHub hover effect */
+.wrapper .icon.github:hover {
+  background: #fff; 
+  color: black; 
+}
+
+/* SVG icon styles */
+.wrapper .icon svg {
+  fill: black; 
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Scale SVG on hover */
+.wrapper .icon:hover svg {
+  transform: scale(1.2); 
+}
+
+.copyright {
+  text-align: center; 
+  font-size: 0.8rem; 
+  color: #777; 
+  margin-top: 10px;
+}
+
+/* Social Icons */
+.linkedin-icon {
+    color: white;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.linkedin-icon:hover {
+    color: #D3D3D3; 
+}
+
+/*****For Mobile devives*****/
+
+@media (max-width: 480px) { 
+  .content {
+    flex: 1;
+    margin-left: 0;
+    padding-top: 100px;
+}
+.text-content h1 {
+  font-size: 65px; /* Increase the font size */
+}
+  .top-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: 10px;
+  }
+
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0px;
+    }
+
+.navbar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 20px;
+    z-index: 1000;
+    background-color: #011627;
+    align-items: center;
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 5px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0; /* Align the line to the left of the nav-link */
+  top: 0; /* Start at the top of the nav-link */
+  height: 0; /* Start with no height */
+  width: 2px; /* Thickness of the vertical line */
+  background-color: #E63946; /* Red color for the line */
+  transition: height 0.3s ease; /* Smooth transition for the line */
+}
+
+.nav-link.active::before {
+  height: 100%; /* Full height of the nav-link */
+}
+
+.image-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.buttons-container {
+display: flex;
+flex-direction: row; 
+justify-content: center; 
+gap: 10px; 
+margin-top: 20px; 
+}
+
+.buttons-container .btn {
+display: inline-block;
+width: auto;
+padding: 10px 20px; 
+}
+
+.profile-image {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 0 auto;
+}
+.show-more-button, .all-posts-button {
+width: 100%; 
+max-width: none;
+font-size: 14px; 
+padding: 12px 20px;
+}
+
+.portfolio-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  margin-right: 50px;
+}
+
+.resume-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.education, .work-experience {
+    width: 100%;
+    margin-right: 0;
+}
+
+.target-role {
+    width: 100%;
+}
+
+.rectangle{
+  margin: auto;
+}
+
+.rectangles-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+
+.nav-links {
+flex-wrap: wrap;
+text-align: center;
+}
+
+.nav-links a {
+font-size: 14px;
+padding: 6px 10px;
+}
+
+.containers-contact {
+flex-direction: column; 
+align-items: center; 
+width: 100%;
+}
+
+.right {
+order: 1; 
+text-align: center; 
+padding: 0; 
+}
+
+.left {
+order: 2; 
+width: 100%; 
+margin-top: 20px;
+}
+} 
+
+/*****For Tablet devices*****/
+@media (min-width: 768px) and (max-width:1023px) {
+  .content {
+    flex: 1;
+    margin-left: 0;
+    padding-top: 100px;
+  }
+  .text-content h1 {
+    font-size: 65px; /* Increase the font size */
+  }
+  .navbar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 20px;
+    z-index: 1000;
+    background-color: #011627;
+    align-items: center;
+}
+.nav-links {
+  display: flex !important;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  transition: color 0.3s;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 5px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0; /* Align the line to the left of the nav-link */
+  top: 0; /* Start at the top of the nav-link */
+  height: 0; /* Start with no height */
+  width: 2px; /* Thickness of the vertical line */
+  background-color: #E63946; /* Red color for the line */
+  transition: height 0.3s ease; /* Smooth transition for the line */
+}
+
+.nav-link.active::before {
+  height: 100%; /* Full height of the nav-link */
+}
+
+.top-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.text-content {
+display: flex;
+flex-direction: column;
+width: 100%;
+margin-left: 0px;
+}
+.image-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.buttons-container {
+display: flex;
+flex-direction: row;
+justify-content: center; 
+gap: 10px; 
+margin-top: 20px; 
+}
+
+.buttons-container .btn {
+display: inline-block;
+width: auto;
+padding: 10px 20px; 
+}
+
+.profile-image {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 0 auto;
+}
+.show-more-button, .all-posts-button {
+width: 100%; 
+max-width: none;
+font-size: 14px; 
+padding: 12px 20px;
+}
+.portfolio-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+
+.resume-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.education, .work-experience {
+    width: 100%;
+    margin-right: 0;
+}
+
+.target-role {
+    width: 100%;
+}
+
+.rectangle{
+  margin: auto;
+}
+
+.rectangles-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+
+.certificate-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.certificate-container img {
+  max-width: 90%;
+  height: auto;
+}
+
+.certificate-container p {
+  text-align: center;
+  width: 90%;
+}
+.nav-links {
+flex-wrap: wrap;
+text-align: center;
+}
+
+.nav-links a {
+font-size: 14px;
+padding: 6px 10px;
+}
+.containers-contact {
+flex-direction: column; 
+align-items: center; 
+width: 100%;
+}
+
+.right {
+order: 1; 
+text-align: center; 
+padding: 0; 
+}
+
+.left {
+order: 2; 
+width: 100%; 
+margin-top: 20px; 
+}
+
+.contact-description {
+margin-bottom: 20px; 
+}
+}
+
+/* For larger screens */
+@media (max-width: 1024px){
+  .content {
+    flex: 1;
+    margin-left: 0;
+    padding-top: 100px;
+}
+.text-content h1 {
+  font-size: 73px; /* Increase the font size */
+}
+  .navbar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 20px;
+    z-index: 1000;
+    background-color: #011627;
+    align-items: center;
+}
+.nav-links {
+  display: flex !important;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 5px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0; /* Align the line to the left of the nav-link */
+  top: 0; /* Start at the top of the nav-link */
+  height: 0; /* Start with no height */
+  width: 2px; /* Thickness of the vertical line */
+  background-color: #E63946; /* Red color for the line */
+  transition: height 0.3s ease; /* Smooth transition for the line */
+}
+
+.nav-link.active::before {
+  height: 100%; /* Full height of the nav-link */
+}
+.top-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.text-content {
+display: flex;
+flex-direction: column;
+width: 100%;
+margin-left: 0px;
+}
+.image-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.buttons-container {
+display: flex;
+flex-direction: row; 
+justify-content: center; 
+gap: 10px; 
+margin-top: 20px; 
+}
+
+.buttons-container .btn {
+display: inline-block;
+width: auto;
+padding: 10px 20px; 
+}
+
+.profile-image {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 0 auto;
+}
+.show-more-button, .all-posts-button {
+width: 100%; /* Full width on small screens */
+max-width: none;
+font-size: 14px; /* Adjust text size */
+padding: 12px 20px;
+}
+.portfolio-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+
+.resume-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.education, .work-experience {
+    width: 100%;
+    margin-right: 0;
+}
+
+.target-role {
+    width: 100%;
+}
+
+.card{
+  margin-left: 40px;
+}
+
+.rectangles-container {
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 20px; 
+  justify-items: center; 
+  width: 100%; 
+}
+
+.rectangle {
+  width: 90%; /* Adjust width to fit smaller screens */
+  max-width: 400px; /* Limit the maximum width */
+  margin: auto;
+}
+
+.nav-links {
+flex-wrap: wrap;
+text-align: center;
+}
+
+.nav-links a {
+font-size: 14px;
+padding: 6px 10px;
+}
+.containers-contact {
+flex-direction: column; /* Stack the sections vertically */
+align-items: center; /* Center align the content */
+width: 100%;
+}
+
+.right {
+order: 1; 
+text-align: center; 
+padding: 0; 
+}
+
+.left {
+order: 2; 
+width: 100%; 
+margin-top: 20px; 
+}
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+}
+
+/* For laptops */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .content {
+    padding: 20px;
+    width: calc(100% - 250px); /* Adjust width to account for the navbar */
+    margin-left: 250px; /* Match the navbar width */
+    background-color: #334452; /* Ensure consistent background color */
+    box-sizing: border-box; /* Include padding in width calculation */
+  }
+  .text-content h1 {
+    font-size: 64px; /* Increase the font size */
+  }
+
+  .navbar {
+    width: 250px; /* Width for the navbar */
+    height: 130vh; /* Full height of the viewport */
+    position: fixed; /* Navbar on the left */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the height calculation */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+.nav-links {
+  gap: 15px;
+  justify-content: center;
+  height: 200%; 
+  margin-top: -150px; /* Move the nav-links up */
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 5px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0; /* Align the line to the left of the nav-link */
+  top: 0; /* Start at the top of the nav-link */
+  height: 0; /* Start with no height */
+  width: 2px; /* Thickness of the vertical line */
+  background-color: #E63946; /* Red color for the line */
+  transition: height 0.3s ease; /* Smooth transition for the line */
+}
+
+.nav-link.active::before {
+  height: 100%; /* Full height of the nav-link */
+}
+.work-experience {
+  width: 60%; /* Adjust the width to make the text more readable */
+  margin: 0 auto; /* Center the work experience section */
+  text-align: justify; /* Justify the text for better alignment */
+}
+
+.work-experience p {
+  font-size: 1rem; /* Adjust the font size */
+  line-height: 1.6; /* Improve readability */
+}
+.card {
+  width: 100%; /* Ensure the card takes full width of its grid cell */
+  max-width: 400px; /* Limit the maximum width of the card */
+  height: 250px; /* Adjust the height of the card */
+  background-color: #011627;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: transform 0.3s ease; /* Add a hover effect */
+}
+.card__content {
+  width: 100%;
+  height: auto; /* Allow the content to adjust dynamically */
+  padding: 10px;
+  box-sizing: border-box;
+  color: white;
+}
+.card__title {
+  font-size: 0.9rem; 
+}
+
+.card__description {
+  font-size: 0.7rem;
+  line-height: 1.5; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  display: -webkit-box;
+  -webkit-line-clamp: 4; 
+  -webkit-box-orient: vertical;
+}
+
+.skills, .tools {
+  padding: 0; 
+  margin: 0; 
+  font-size: 12px; 
+  color: black;
+  margin-top: 10px;
+}
+
+.rectangles-container {
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 30px; 
+  justify-items: center; 
+  width: 100%; 
+}
+.rectangle {
+  width: 90%; 
+  max-width: 400px; 
+  margin: auto;
+  border-radius: 5px; 
+  background-size: contain; 
+  background-position: center; 
+  background-repeat: no-repeat;
+}
+.containers-contact {
+  width: auto; 
+  max-width: 800px; 
+  margin: 0 auto; 
+  padding: 20px; 
+  display: flex;
+  flex-direction: row; 
+  gap: 20px; 
+}
+}
+
+/* For larger screens */
+@media (min-width: 1441px) {
+  .navbar {
+    width: 250px; 
+    height: 100vh; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    background-color: #011627;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box; 
+    z-index: 1000; 
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 5px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0; /* Align the line to the left of the nav-link */
+  top: 0; /* Start at the top of the nav-link */
+  height: 0; /* Start with no height */
+  width: 2px; /* Thickness of the vertical line */
+  background-color: #E63946; /* Red color for the line */
+  transition: height 0.3s ease; /* Smooth transition for the line */
+}
+
+.nav-link.active::before {
+  height: 100%; /* Full height of the nav-link */
+}
+
+.rectangles-container {
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; 
+  justify-items: center; 
+  width: 100%; 
+}
+.rectangle {
+  width: 90%; 
+  max-width: 400px; 
+  margin: auto;
+  border-radius: 5px; 
+  background-size: contain; 
+  background-position: center; 
+  background-repeat: no-repeat;
+}
+.portfolio-content {
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 30px; 
+  justify-items: center; 
+  width: 100%; 
+  margin-top: 20px; 
+}
+}
